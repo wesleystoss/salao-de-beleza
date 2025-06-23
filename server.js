@@ -42,7 +42,6 @@ app.use(compression());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuração de sessão
 app.use(session({
@@ -68,11 +67,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Rotas
+// Rotas PRIMEIRO (antes dos arquivos estáticos)
 app.use('/', require('./routes/index'));
 app.use('/contato', require('./routes/contato'));
 app.use('/servicos', require('./routes/servicos'));
 app.use('/sobre', require('./routes/sobre'));
+
+// Arquivos estáticos DEPOIS das rotas
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Rota 404
 app.use((req, res) => {
