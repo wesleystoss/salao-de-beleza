@@ -5,7 +5,7 @@ const config = {
   NODE_ENV: process.env.NODE_ENV || 'production',
 
   // Configurações de Sessão
-  SESSION_SECRET: process.env.SESSION_SECRET || 'salao-de-beleza-wesley-toss-secret-key-2024',
+  SESSION_SECRET: process.env.SESSION_SECRET || 'f19e2cf92be65437befa273e36240603b386e2204787a0c31bbde5a8a513b4c4',
 
   // Configurações de Email (opcional)
   EMAIL_HOST: process.env.EMAIL_HOST || 'smtp.gmail.com',
