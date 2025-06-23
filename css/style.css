@@ -732,7 +732,18 @@ p {
 }
 
 .contact-cta {
-    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+.contact-cta .btn {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 320px;
+    width: 100%;
 }
 
 .contact-form {

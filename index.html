@@ -523,8 +523,8 @@
                     <h4>Newsletter</h4>
                     <p>Receba nossas novidades e promoções exclusivas</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Seu email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        <input type="tel" id="newsletter-phone" placeholder="Seu WhatsApp" maxlength="15" required>
+                        <button type="submit"><i class="fab fa-whatsapp"></i> Quero receber avisos de promoções no meu WhatsApp</button>
                     </form>
                 </div>
             </div>
@@ -542,5 +542,20 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+    // Máscara para telefone brasileiro no campo de newsletter
+    const phoneInput = document.getElementById('newsletter-phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (value.length > 0) value = '(' + value;
+            if (value.length > 3) value = value.slice(0, 3) + ') ' + value.slice(3);
+            if (value.length > 10) value = value.slice(0, 10) + '-' + value.slice(10);
+            else if (value.length > 6) value = value.slice(0, 6) + '-' + value.slice(6);
+            e.target.value = value;
+        });
+    }
+    </script>
 </body>
 </html> 
