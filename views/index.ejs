@@ -1,0 +1,147 @@
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-background">
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title"><%= hero.title %></h1>
+            <p class="hero-subtitle"><%= hero.subtitle %></p>
+            <div class="hero-actions">
+                <a href="/contato" class="btn btn-primary btn-large">
+                    <i class="fas fa-calendar-alt"></i>
+                    <%= hero.cta %>
+                </a>
+                <a href="/servicos" class="btn btn-outline btn-large">
+                    <i class="fas fa-eye"></i>
+                    Ver Serviços
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <a href="#servicos" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Serviços Section -->
+<section id="servicos" class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Descubra nossa gama completa de serviços profissionais</p>
+        </div>
+        
+        <div class="services-grid">
+            <% servicos.forEach(servico => { %>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-<%= servico.icone %>"></i>
+                    </div>
+                    <h3 class="service-title"><%= servico.nome %></h3>
+                    <p class="service-description"><%= servico.descricao %></p>
+                    <div class="service-price"><%= servico.preco %></div>
+                    <a href="/contato" class="btn btn-outline">Agendar</a>
+                </div>
+            <% }); %>
+        </div>
+        
+        <div class="services-cta">
+            <a href="/servicos" class="btn btn-primary">
+                Ver Todos os Serviços
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Sobre Section -->
+<section class="about-preview">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="about-title">Sobre o Beleza & Estilo</h2>
+                <p class="about-description">
+                    Com mais de 10 anos de experiência, somos especialistas em transformar e realçar sua beleza natural. 
+                    Nossa equipe de profissionais qualificados utiliza técnicas modernas e produtos de alta qualidade 
+                    para proporcionar resultados excepcionais.
+                </p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-star"></i>
+                        <span>Qualidade Garantida</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Atendimento Rápido</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Amor pelo que Fazemos</span>
+                    </div>
+                </div>
+                <a href="/sobre" class="btn btn-primary">Conheça Nossa História</a>
+            </div>
+            <div class="about-image">
+                <img src="/images/salon-interior.jpg" alt="Interior do salão" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Depoimentos Section -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">O que Nossas Clientes Dizem</h2>
+            <p class="section-subtitle">Depoimentos de quem confia em nosso trabalho</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <% depoimentos.forEach(depoimento => { %>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"<%= depoimento.texto %>"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="<%= depoimento.foto %>" alt="<%= depoimento.nome %>" class="author-photo">
+                        <div class="author-info">
+                            <h4 class="author-name"><%= depoimento.nome %></h4>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Pronta para se Transformar?</h2>
+            <p class="cta-description">
+                Agende seu horário e descubra como podemos realçar sua beleza natural
+            </p>
+            <div class="cta-actions">
+                <a href="/contato" class="btn btn-primary btn-large">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agendar Horário
+                </a>
+                <a href="https://wa.me/5511999999999" class="btn btn-outline btn-large" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section> 

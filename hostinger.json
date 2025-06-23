@@ -1,0 +1,25 @@
+{
+  "name": "site-institucional",
+  "version": "1.0.0",
+  "description": "Site institucional para salão de beleza",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9",
+    "express-ejs-layouts": "^2.5.1",
+    "body-parser": "^1.20.2",
+    "express-session": "^1.17.3",
+    "connect-flash": "^0.1.1",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^7.1.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  }
+} 

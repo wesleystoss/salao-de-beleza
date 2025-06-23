@@ -1,0 +1,125 @@
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Sobre Nós</h1>
+        <p class="page-subtitle">Conheça nossa história e nossa equipe</p>
+    </div>
+</section>
+
+<!-- History Section -->
+<section class="history">
+    <div class="container">
+        <div class="history-content">
+            <div class="history-text">
+                <h2 class="history-title"><%= historia.titulo %></h2>
+                <p class="history-description"><%= historia.texto %></p>
+                
+                <div class="mission-vision">
+                    <div class="mission">
+                        <h3><i class="fas fa-bullseye"></i> Nossa Missão</h3>
+                        <p><%= historia.missao %></p>
+                    </div>
+                    <div class="vision">
+                        <h3><i class="fas fa-eye"></i> Nossa Visão</h3>
+                        <p><%= historia.visao %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="history-image">
+                <img src="/images/salon-history.jpg" alt="História do salão" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nossos Valores</h2>
+            <p class="section-subtitle">Princípios que guiam nosso trabalho</p>
+        </div>
+        
+        <div class="values-grid">
+            <% valores.forEach(valor => { %>
+                <div class="value-card">
+                    <h3 class="value-title"><%= valor.titulo %></h3>
+                    <p class="value-description"><%= valor.descricao %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nossa Equipe</h2>
+            <p class="section-subtitle">Profissionais qualificados e apaixonados pelo que fazem</p>
+        </div>
+        
+        <div class="team-grid">
+            <% equipe.forEach(membro => { %>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="<%= membro.foto %>" alt="<%= membro.nome %>" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name"><%= membro.nome %></h3>
+                        <p class="team-position"><%= membro.cargo %></p>
+                        <p class="team-specialty"><strong>Especialidade:</strong> <%= membro.especialidade %></p>
+                        <p class="team-experience"><strong>Experiência:</strong> <%= membro.experiencia %></p>
+                        <p class="team-description"><%= membro.descricao %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Anos de Experiência</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Clientes Satisfeitas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Qualidade Garantida</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Prêmios Conquistados</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Conheça Nossa Equipe de Perto</h2>
+            <p class="cta-description">
+                Agende seu horário e venha conhecer pessoalmente nossos profissionais
+            </p>
+            <div class="cta-actions">
+                <a href="/contato" class="btn btn-primary btn-large">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agendar Horário
+                </a>
+                <a href="/servicos" class="btn btn-outline btn-large">
+                    <i class="fas fa-eye"></i>
+                    Ver Serviços
+                </a>
+            </div>
+        </div>
+    </div>
+</section> 
