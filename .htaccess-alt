@@ -1,9 +1,11 @@
 # Habilitar rewrite engine
 RewriteEngine On
 
-# Configurações para Node.js na Hostinger
-# Redirecionar TODAS as requisições para o servidor Node.js na porta 3000
-# Incluindo a página inicial (/)
+# Configurações específicas para Node.js na Hostinger
+# Forçar redirecionamento da página inicial para Node.js
+RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
+
+# Redirecionar todas as outras requisições para o servidor Node.js
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
