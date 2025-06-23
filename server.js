@@ -14,6 +14,9 @@ const config = require('./config');
 const app = express();
 const PORT = config.PORT;
 
+// Configurar trust proxy para resolver warning do rate-limit
+app.set('trust proxy', 1);
+
 // Configurações de segurança
 app.use(helmet({
   contentSecurityPolicy: {

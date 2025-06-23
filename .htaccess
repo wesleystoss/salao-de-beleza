@@ -1,15 +1,8 @@
 # Habilitar rewrite engine
 RewriteEngine On
 
-# Permitir acesso a arquivos estáticos
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^(.*)$ $1 [L]
-
-# Permitir acesso a diretórios
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^(.*)$ $1 [L]
-
-# Redirecionar todas as outras requisições para o servidor Node.js
+# Configurações para Node.js na Hostinger
+# Redirecionar todas as requisições para o servidor Node.js na porta 3000
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
@@ -26,6 +19,11 @@ RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
 </Files>
 
 <Files "server.js">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "config.js">
     Order allow,deny
     Deny from all
 </Files>
