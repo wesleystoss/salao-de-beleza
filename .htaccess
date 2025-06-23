@@ -1,9 +1,34 @@
+# Habilitar rewrite engine
 RewriteEngine On
 
-# Redirecionar todas as requisições para o servidor Node.js
+# Permitir acesso a arquivos estáticos
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*)$ $1 [L]
+
+# Permitir acesso a diretórios
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*)$ $1 [L]
+
+# Redirecionar todas as outras requisições para o servidor Node.js
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
+
+# Configurações de segurança
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "package.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "server.js">
+    Order allow,deny
+    Deny from all
+</Files>
 
 # Configurações de cache para arquivos estáticos
 <IfModule mod_expires.c>
@@ -28,4 +53,14 @@ RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
     AddOutputFilterByType DEFLATE application/rss+xml
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/x-javascript
-</IfModule> 
+</IfModule>
+
+# Configurações de diretório
+Options -Indexes
+DirectoryIndex index.html index.htm
+
+# Permitir acesso a arquivos específicos
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch> 

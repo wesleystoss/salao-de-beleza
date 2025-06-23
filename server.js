@@ -8,6 +8,7 @@ const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const expressLayouts = require('express-ejs-layouts');
+require('dotenv').config(); // Carrega o arquivo .env
 const config = require('./config');
 
 const app = express();
