@@ -943,7 +943,17 @@ p {
     }
 
     .hero-buttons {
-        justify-content: center;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .hero-buttons .btn {
+        margin: 0 !important;
+        min-width: 180px;
     }
 
     .about-content {
@@ -993,6 +1003,21 @@ p {
 
     .header {
         height: 70px;
+    }
+
+    .about-cta {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .about-cta .btn {
+        display: inline-block !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: 320px !important;
+        width: 100%;
     }
 }
 
