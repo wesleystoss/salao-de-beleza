@@ -9,7 +9,7 @@
     "build": "npm install"
   },
   "keywords": ["institucional", "beleza", "nodejs", "express"],
-  "author": "Seu Nome",
+  "author": "Wesley Toss",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",

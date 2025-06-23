@@ -8,10 +8,10 @@ const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const expressLayouts = require('express-ejs-layouts');
-require('dotenv').config();
+const config = require('./config');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = config.PORT;
 
 // Configurações de segurança
 app.use(helmet({
@@ -42,10 +42,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuração de sessão
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'sua-chave-secreta-aqui',
+  secret: config.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // true em produção com HTTPS
+  cookie: { secure: config.NODE_ENV === 'production' } // true em produção com HTTPS
 }));
 
 app.use(flash());
@@ -84,11 +84,12 @@ app.use((err, req, res, next) => {
   res.status(500).render('error', {
     title: 'Erro interno',
     page: 'error',
-    error: process.env.NODE_ENV === 'development' ? err : {}
+    error: config.NODE_ENV === 'development' ? err : {}
   });
 });
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Ambiente: ${config.NODE_ENV}`);
   console.log(`Acesse: http://localhost:${PORT}`);
 }); 
